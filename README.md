@@ -18,19 +18,19 @@
 
 </p>
 
-![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/main/1.PNG)
+![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/master/1.png)
 
 <br>
 
-![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/main/2.PNG)
+![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/master/2.png)
 
 <br>
 
-![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/main/3.PNG)
+![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/master/3.png)
 
 <br>
 
-![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/main/4.PNG)
+![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/master/4.png)
 
 <br>
 
