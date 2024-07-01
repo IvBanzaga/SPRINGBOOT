@@ -18,7 +18,7 @@
 
 </p>
 
-![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/master/1.PNG)
+![screenshot](https://github.com/IvBanzaga/SpringBoot/blob/master/1.png)
 
 <br>
 
