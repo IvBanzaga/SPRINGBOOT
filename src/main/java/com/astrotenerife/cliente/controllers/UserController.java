@@ -4,6 +4,7 @@ package com.astrotenerife.cliente.controllers;
 
 import com.astrotenerife.cliente.entities.User;
 import com.astrotenerife.cliente.services.UserServiceImp;
+import com.astrotenerife.cliente.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,8 @@ import java.util.*;
 //@RequestMapping("/api/v1/users")
 //@RequiredArgsConstructor
 @RestController
+
+@RequestMapping("/api")
 
 
 
@@ -105,7 +108,10 @@ public class UserController {
 
     // Traer Devolver todos los clientes
     @GetMapping("/user")
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(String token) {
+
+        String userId = JwtUtil.getUserByToken(token);
+
         return service.getAllUsers();
     }
 

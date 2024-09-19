@@ -1,50 +1,58 @@
 function init() {
-
-    renderCustomers();
+  renderCustomers();
 }
 
 async function getCustomers() {
+  let url = URL_SERVER + "customer";
 
-    let url = URL_SERVER + 'customer';
-    let response = await fetch(url);
-    let json = await response.json();
+  let config = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: sessionStorage.token,
+    },
+  };
 
-    return json;
+  let response = await fetch(url, config);
+  let json = await response.json();
+
+  return json;
 }
 
 async function renderCustomers() {
+  let customers = await getCustomers();
+  let html = "";
+  for (let i = 0; i < customers.length; i++) {
+    html += getHtmlRowCustomer(customers[i]);
+  }
 
-    let customers = await getCustomers();
-    let html = '';
-    for (let i = 0; i < customers.length; i++) {
-        html += getHtmlRowCustomer(customers[i]);
-    }
-
-    let tbody = document.getElementById('tbody-customers');
-    tbody.innerHTML = html;
-
+  let tbody = document.getElementById("tbody-customers");
+  tbody.innerHTML = html;
 }
 
 async function onClickEdit(id) {
-
-    window.location.href = 'modify-customer.html?id=' + id;
+  window.location.href = "modify-customer.html?id=" + id;
 }
 
 async function onClickRemove(id) {
-    let response = confirm('¿Estás seguro de eliminar el cliente?');
-    if (!response) {
-        return;
-    }
-    let url = URL_SERVER + 'customer/' + id;
-    let config = {
-        method: 'DELETE'
-    };
-    await fetch(url, config);
-    renderCustomers();
+  let response = confirm("¿Estás seguro de eliminar el cliente?");
+  if (!response) {
+    return;
+  }
+  let url = URL_SERVER + "customer/" + id;
+  let config = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: sessionStorage.token,
+    },
+  };
+  await fetch(url, config);
+  renderCustomers();
 }
 
 function getHtmlRowCustomer(customer) {
-    return ` <tr>
+  return ` <tr>
                         <td>${customer.id}</td>
                         <td>${customer.firstname}</td>
                         <td>${customer.lastname}</td>

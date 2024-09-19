@@ -4,11 +4,13 @@ package com.astrotenerife.cliente.services;
 
 import com.astrotenerife.cliente.entities.User;
 import com.astrotenerife.cliente.repository.UserRepository;
+import com.google.common.hash.Hashing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +20,7 @@ import java.util.Optional;
 
 public class UserServiceImp implements UserService {
 
+    private static final String SECRET_KEY = "AstroTenerife";
     @Autowired
     private UserRepository repository;
 
@@ -92,6 +95,13 @@ public class UserServiceImp implements UserService {
     // Agregar Cliente
     public void addUser(User user) {
         //list.add(user);
+
+        // Encriptar contraseña
+        String originalString = user.getPassword() + SECRET_KEY;
+        String sha256hex = Hashing.sha256()
+                .hashString(originalString, StandardCharsets.UTF_8)
+                .toString();
+        user.setPassword(sha256hex);
         repository.save(user);
     }
 

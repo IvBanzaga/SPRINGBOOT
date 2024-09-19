@@ -1,2 +1,9 @@
-package com.astrotenerife.cliente.dto;public class RequestLogin {
+package com.astrotenerife.cliente.dto;
+
+import lombok.Data;
+
+@Data
+public class RequestLogin {
+    private String email;
+    private String password;
 }

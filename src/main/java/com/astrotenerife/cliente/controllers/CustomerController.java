@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 //@RequestMapping("/api/v1/users")
 //@RequiredArgsConstructor
+@RequestMapping("/api")
 @RestController
 
 
@@ -44,57 +45,57 @@ public class CustomerController {
         list.add(c2);
     }*/
     // List
-    @GetMapping("/prueba1")
-    public List<String> prueba1(){
-        List<String> list = new ArrayList<>();
-        list.add("Una lista de nombres");
-        list.add("Lucas");
-        list.add("Juan");
-        list.add("Pedro");
-        return list;
-    }
+    //@GetMapping("/prueba1")
+   // public List<String> prueba1(){
+     //   List<String> list = new ArrayList<>();
+      //  list.add("Una lista de nombres");
+     //   list.add("Lucas");
+     //   list.add("Juan");
+     //   list.add("Pedro");
+     //   return list;
+  //  }
 
     // Map
-    @GetMapping("/prueba2")
-    public Map<String, String> prueba2(){
-        Map<String, String> map = new HashMap<>();
-        map.put("descripción", "HashMap no garantiza el orden de inserción");
-        map.put("nombre", "Lucas");
-        map.put("apellido", "Gonzalez");
-        map.put("edad", "25");
-        map.put("ciudad", "Santa Cruz de Tenerife");
-        map.put("pais", "España");
-        map.put("teléfono", "922123456");
-        return map;
-    }
+   // @GetMapping("/prueba2")
+   // public Map<String, String> prueba2(){
+   //     Map<String, String> map = new HashMap<>();
+    //    map.put("descripción", "HashMap no garantiza el orden de inserción");
+    //    map.put("nombre", "Lucas");
+    //    map.put("apellido", "Gonzalez");
+   //     map.put("edad", "25");
+    //    map.put("ciudad", "Santa Cruz de Tenerife");
+    //    map.put("pais", "España");
+     //   map.put("teléfono", "922123456");
+    //    return map;
+  //  }
 
     // TreeMap
-    @GetMapping("/prueba3")
-    public Map<String, String> prueba3(){
-        Map<String, String> map = new TreeMap<>();
-        map.put("descripción", "TreeMap ordena por clave");
-        map.put("nombre", "Lucas");
-        map.put("apellido", "Gonzalez");
-        map.put("edad", "25");
-        map.put("ciudad", "Santa Cruz de Tenerife");
-        map.put("pais", "España");
-        map.put("teléfono", "922123456");
-        return map;
-    }
+  //  @GetMapping("/prueba3")
+  //  public Map<String, String> prueba3(){
+   //     Map<String, String> map = new TreeMap<>();
+  //      map.put("descripción", "TreeMap ordena por clave");
+  //      map.put("nombre", "Lucas");
+  //      map.put("apellido", "Gonzalez");
+ //       map.put("edad", "25");
+   //     map.put("ciudad", "Santa Cruz de Tenerife");
+  //      map.put("pais", "España");
+ //       map.put("teléfono", "922123456");
+  //      return map;
+ //   }
 
     // LinkedHashMap
-    @GetMapping("/prueba4")
-    public Map<String, String> prueba4(){
-        Map<String, String> map = new LinkedHashMap<>();
-        map.put("descripción", "LinkedHashMap mantiene el orden de inserción");
-        map.put("nombre", "Lucas");
-        map.put("apellido", "Gonzalez");
-        map.put("edad", "25");
-        map.put("ciudad", "Santa Cruz de Tenerife");
-        map.put("pais", "España");
-        map.put("teléfono", "922123456");
-        return map;
-    }
+    //@GetMapping("/prueba4")
+   // public Map<String, String> prueba4(){
+     //   Map<String, String> map = new LinkedHashMap<>();
+     //   map.put("descripción", "LinkedHashMap mantiene el orden de inserción");
+     //   map.put("nombre", "Lucas");
+     //   map.put("apellido", "Gonzalez");
+     //   map.put("edad", "25");
+     //   map.put("ciudad", "Santa Cruz de Tenerife");
+     //   map.put("pais", "España");
+     //   map.put("teléfono", "922123456");
+     //   return map;
+   // }
 
     // Traer Devolver un cliente específico
     @GetMapping("/customer/{id}")
