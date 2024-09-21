@@ -24,6 +24,8 @@ import jakarta.persistence.*;
 // También podemos utilizar @Data para tener todos los anteriores
 
 @Entity
+
+// esto crea una tabla en la base de datos , pero si ya esta creada no la vuelve a crear
 @Table(name = "customers")
 public class Customer {
 
