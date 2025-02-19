@@ -8,17 +8,18 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api")
-@CrossOrigin(origins ="*")
+@RestController // Anotación para indicar que es un controlador
+@RequestMapping("/api") // Anotación para indicar la ruta de acceso
+@CrossOrigin(origins ="*") // Anotación para permitir el acceso a la API desde cualquier origen
 
+// Clase para autenticar usuarios
 public class AuthController {
 
     @Autowired
-    private AuthService service;
+    private AuthService service; // Inyectar dependencia
 
     @PostMapping("/auth/login")
-    public String login(@RequestBody RequestLogin request) {
+    public String login(@RequestBody RequestLogin request) {  // Método para autenticar/iniciar sesión de los usuarios
         String email = request.getEmail();
         String password = request.getPassword();
         User user = service.login(email, password);

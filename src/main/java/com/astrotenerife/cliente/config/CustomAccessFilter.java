@@ -45,8 +45,7 @@ public class CustomAccessFilter implements Filter {
         String currentUrl = request.getRequestURI();
         String[] availableUrl = new String[] {
                 "/api/auth/login",
-                "/api/auth/register",
-                "/api/user"
+                "/api/auth/register"
         };
 
         // Se comprueba si la URL actual está en la lista de URLs disponibles

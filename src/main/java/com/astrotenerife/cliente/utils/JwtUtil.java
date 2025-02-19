@@ -12,6 +12,9 @@ public class JwtUtil {
 
     private static final String SECRET_KEY = "AstroTenerife";
     private static final Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
+    private static Date getExpiresDate() {
+        return new Date(System.currentTimeMillis() + (1000L * 60 * 60 * 24));
+    }
 
     public static String generateToken (User user) {
         //Algorithm algorithm = Algorithm.HMAC256("SECRET_KEY");
@@ -27,9 +30,7 @@ public class JwtUtil {
         return token;
     }
 
-    private static Date getExpiresDate() {
-        return new Date(System.currentTimeMillis() + (1000L * 60 * 60 * 24));
-    }
+
 
     public static String getUserByToken (String token) {
         JWTVerifier verifier = JWT.require(algorithm)

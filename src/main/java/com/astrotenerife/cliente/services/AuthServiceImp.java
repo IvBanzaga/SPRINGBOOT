@@ -16,15 +16,17 @@ public class AuthServiceImp implements AuthService{
     private static final String SECRET_KEY = "AstroTenerife";
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository userRepository; // Inyectar dependencia
 
+    // Método para autenticar usuarios
     @Override
     public User login(String email, String password) {
         String originalString = password + SECRET_KEY;
-        String sha256hex = Hashing.sha256()
-                .hashString(originalString, StandardCharsets.UTF_8)
+        String sha256hex = Hashing.sha256() // Hashing es una clase de la librería Guava
+                .hashString(originalString, StandardCharsets.UTF_8) // StandardCharsets es una clase de Java
                 .toString();
 
+        // Buscar usuario por email y contraseña para autenticar
         List<User> result = userRepository.findByEmailAndPassword(email, sha256hex);
         if (result.isEmpty()){
             return null;

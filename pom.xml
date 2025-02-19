@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.astrotenerife</groupId>
-	<artifactId>clienteATLacademy</artifactId>
+	<artifactId>ProyectosSpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>cliente</name>

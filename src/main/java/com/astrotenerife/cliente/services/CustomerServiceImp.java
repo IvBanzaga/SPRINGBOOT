@@ -16,33 +16,11 @@ import java.util.Optional;
 
 @Service
 
+// Implementación de la interfaz CustomerService, es un contrato que se debe cumplir.
 public class CustomerServiceImp implements CustomerService {
 
     @Autowired
     private CustomerRepository repository;
-
-    /*private List<Customer> list = new ArrayList<>();
-
-    public CustomerServiceImp() {
-        Customer c1 = new Customer();
-        c1.setId(1);
-        c1.setFirstname("Lucas");
-        c1.setLastname("Gonzalez");
-        c1.setEmail("i.bazaga@gmail.com");
-        c1.setPhone("922123456");
-        c1.setAddress("Calle Falsa 123");
-
-        Customer c2 = new Customer();
-        c2.setId(2);
-        c2.setFirstname("Juan");
-        c2.setLastname("Perez");
-        c2.setEmail("andres@gmail.com");
-        c2.setPhone("922123456");
-        c2.setAddress("Calle Falsa 123");
-
-        list.add(c1);
-        list.add(c2);
-    }*/
 
     private final RestTemplate restTemplate = new RestTemplate();
 
@@ -56,12 +34,6 @@ public class CustomerServiceImp implements CustomerService {
     public Customer getCustomer(Integer id) {
         Optional<Customer> customer = repository.findById(id);
         return customer.orElse(null);
-
-        /*for (Customer customer : list) {
-            if (Objects.equals(customer.getId(), id)) {
-                return customer;
-            }
-        }*/
 
     }
 
@@ -78,33 +50,16 @@ public class CustomerServiceImp implements CustomerService {
     // Eliminar Cliente
     public void deleteCustomer(Integer id) {
 
-        /*for (Customer customer : list) {
-            if (customer.getId().equals(id)) {
-                list.remove(customer);
-                break;
-            }
-
-        }*/
-
         repository.deleteById(id);
     }
 
     // Agregar Cliente
     public void addCustomer(Customer customer) {
-        //list.add(customer);
         repository.save(customer);
     }
 
     // Modificar Cliente
     public void updateCustomer(Integer id, Customer updateCustomer) {
-        /*for (Customer customer : list) {
-            if (customer.getId().equals(id)) {
-                list.remove(customer);
-                updateCustomer.setId(id);
-                list.add(updateCustomer);
-                break;
-            }
-        }*/
         updateCustomer.setId(id);
         repository.save(updateCustomer);
     }
@@ -112,18 +67,6 @@ public class CustomerServiceImp implements CustomerService {
     // Buscar Cliente
     public List<Customer> searchCustomer(String email, String phone, String address, String firstname, String lastname)
     {
-        /*List<Customer> searchResult = new ArrayList<>();
-        for (Customer customer : list) {
-            if ((email == null || (customer.getEmail() != null && customer.getEmail().contains(email)))
-                    && (phone == null || (customer.getPhone() != null && customer.getPhone().contains(phone)))
-                    && (address == null || (customer.getAddress() != null && customer.getAddress().contains(address)))
-                    && (firstname == null || (customer.getFirstname() != null && customer.getFirstname().contains(firstname)))
-                    && (lastname == null || (customer.getLastname() != null && customer.getLastname().contains(lastname)))) {
-                searchResult.add(customer);
-            }
-        }
-        return searchResult;
-    }*/
         return repository.findByEmailContainingOrPhoneContainingOrAddressContainingOrFirstnameContainingOrLastnameContaining(email, phone, address, firstname, lastname);
 
     }

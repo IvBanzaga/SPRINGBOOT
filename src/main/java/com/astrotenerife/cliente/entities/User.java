@@ -19,7 +19,7 @@ public class User {
     private String phone;
     private String address;
 
-    // Solo se puede cargar, no se puede leer
+    // Solo se puede cargar, para que no se muestre la contraseña
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 }
